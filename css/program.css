@@ -1,0 +1,304 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    overflow: hidden;
+    height: 100%;
+    background: linear-gradient(rgb(245 69 69 / 77%), rgb(255 39 205 / 84%)), url(../images/background.jpg);
+}
+
+body {
+    width: 100vw;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+}
+
+.title {
+    color: #ff69b4;
+    text-align: center;
+    text-shadow: 0 1px 2px #fff, 0 0px 8px #00bfff, 0 0px 4px #32cd32;
+    font-size: 3rem;
+    font-family: 'Brush Script MT', 'Comic Sans MS', cursive, sans-serif;
+    font-weight: bold;
+    letter-spacing: 8px;
+    margin-top: -87px !important;
+    text-transform: capitalize;
+    background: linear-gradient(90deg, #ff69b4 30%, #00bfff 30%, #32cd32 70%, #ffa500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* justify-self: flex-start; */
+}
+
+.cube {
+    position: relative;
+    margin: 0px auto;
+    margin-top: 15%;
+    /* margin-left: 42%; */
+    width: 200px;
+    height: 200px;
+    transform: rotateX(-30deg) rotateY(-80deg);
+    transform-style: preserve-3d;
+    animation: rotate 15s infinite;
+}
+
+.cube .outer-cube,
+.cube .inner-cube {
+    transform-style: preserve-3d;
+}
+
+/* 旋转立方体 */
+@keyframes rotate {
+    from {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+/* 外层立方体样式 */
+.outer-cube .outer-top,
+.outer-cube .outer-bottom,
+.outer-cube .outer-right,
+.outer-cube .outer-left,
+.outer-cube .outer-front,
+.outer-cube .outer-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 180px;
+    height: 200px;
+    border: 1px solid #fff;
+    opacity: 0.3;
+    transition: all .9s;
+    background-size: cover;  /* Ensures the image covers the full area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat;
+}
+
+.outer-cube img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover; /* Ensures the image fills the container without stretching */
+    
+}
+
+
+.outer-top {
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.outer-bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+.outer-front {
+    transform: rotateY(0deg) translateZ(100px);
+}
+
+.outer-back {
+    transform: translateZ(-100px) rotateY(180deg);
+}
+
+.outer-left {
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.outer-right {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+/* 嵌套的内层立方体样式 */
+.inner-cube>div {
+    position: absolute;
+    top: 35px;
+    left: 35px;
+    width: 130px;
+    height: 130px;
+}
+
+.inner-cube img {
+    width: 130px;
+    height: 130px;
+}
+
+.inner-top {
+    transform: rotateX(90deg) translateZ(65px);
+}
+
+.inner-bottom {
+    transform: rotateX(-90deg) translateZ(65px);
+}
+
+.inner-front {
+    transform: rotateY(0deg) translateZ(65px);
+}
+
+.inner-back {
+    transform: translateZ(-65px) rotateY(180deg);
+}
+
+.inner-left {
+    transform: rotateY(90deg) translateZ(65px);
+}
+
+.inner-right {
+    transform: rotateY(-90deg) translateZ(65px);
+}
+
+.cube:hover .outer-top {
+    right: -70px;
+    bottom: -70px;
+    opacity: 0.8;
+    transform: rotateX(90deg) translateZ(200px);
+}
+
+.cube:hover .outer-bottom {
+    right: -70px;
+    bottom: -70px;
+    opacity: 0.8;
+    transform: rotateX(-90deg) translateZ(200px);
+}
+
+.cube:hover .outer-front {
+    right: -70px;
+    bottom: -70px;
+    opacity: 0.8;
+    transform: rotateY(0deg) translateZ(200px);
+}
+
+.cube:hover .outer-back {
+    right: -70px;
+    bottom: -70px;
+    opacity: 0.8;
+    transform: translateZ(-200px) rotateY(180deg);
+}
+
+#copy {
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+}
+
+#copy a {
+    text-decoration: none;
+    color: #191919d7;
+}
+
+    #copy p {
+    color: #fff6f9;
+    text-align: center;
+    font-weight: 700;
+    cursor: pointer;
+    }
+
+
+.cube:hover .outer-left {
+    right: -70px;
+    bottom: -70px;
+    opacity: 0.8;
+    transform: rotateY(90deg) translateZ(200px);
+}
+
+.cube:hover .outer-right {
+    right: -70px;
+    bottom: -70px;
+    opacity: 0.8;
+    transform: rotateY(-90deg) translateZ(200px);
+}
+
+.message .author {
+    position: absolute;
+    right: 50px;
+    background-image: -webkit-linear-gradient(left, blue, #66ffff 10%, #cc00ff 20%, #CC00CC 30%, #CCCCFF 40%, #00FFFF 50%, #CCCCFF 60%, #CC00CC 70%, #CC00FF 80%, #66FFFF 90%, blue 100%);
+    font-size: 35px;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-size: 200% 100%;
+    -webkit-animation: masked-animation 4s linear infinite;
+}
+
+@keyframes masked-animation {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+.message .tip {
+    position: absolute;
+    /* right: 10px; */
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    margin-top: 60px;
+    color: white;
+    font-size: 18px;
+}
+
+/* Amazing background with names */
+.bg-names {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bg-names .name {
+  position: absolute;
+  color: rgba(255,255,255,0.15);
+  font-size: 3vw;
+  font-weight: bold;
+  user-select: none;
+  animation: floatNames 12s infinite linear;
+}
+
+.bg-names .nisha {
+  font-family: 'Brush Script MT', cursive, sans-serif;
+  left: 10%; top: 15%; transform: rotate(-10deg);
+  color: #ff69b4;
+}
+.bg-names .dev {
+  font-family: 'Impact', fantasy, sans-serif;
+  left: 60%; top: 30%; transform: rotate(8deg);
+  color: #00bfff;
+}
+.bg-names .shreya {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  left: 35%; top: 70%; transform: rotate(-5deg);
+  color: #32cd32;
+}
+
+/* Add more positions for repeated names */
+.bg-names .name:nth-child(4) { left: 80%; top: 10%; font-size: 4vw; color: #ffa500; font-family: 'Times New Roman', serif; }
+.bg-names .name:nth-child(5) { left: 20%; top: 60%; font-size: 2.5vw; color: #8a2be2; font-family: 'Arial Black', sans-serif; }
+.bg-names .name:nth-child(6) { left: 50%; top: 80%; font-size: 3.5vw; color: #ff6347; font-family: 'Georgia', serif; }
+.bg-names .name:nth-child(7) { left: 70%; top: 50%; font-size: 2vw; color: #00fa9a; font-family: 'Courier New', monospace; }
+.bg-names .name:nth-child(8) { left: 30%; top: 40%; font-size: 3vw; color: #e9967a; font-family: 'Trebuchet MS', sans-serif; }
+.bg-names .name:nth-child(9) { left: 15%; top: 80%; font-size: 2vw; color: #ffb6c1; font-family: 'Lucida Console', monospace; }
+.bg-names .name:nth-child(10) { left: 85%; top: 60%; font-size: 3vw; color: #4682b4; font-family: 'Palatino', serif; }
+.bg-names .name:nth-child(11) { left: 40%; top: 10%; font-size: 2.5vw; color: #dc143c; font-family: 'Verdana', sans-serif; }
+.bg-names .name:nth-child(12) { left: 55%; top: 55%; font-size: 3vw; color: #20b2aa; font-family: 'Garamond', serif; }
+
+@keyframes floatNames {
+  0% { opacity: 0.7; transform: translateY(0) scale(1) rotate(0deg); }
+  50% { opacity: 1; transform: translateY(-20px) scale(1.1) rotate(5deg); }
+  100% { opacity: 0.7; transform: translateY(0) scale(1) rotate(0deg); }
+}
+}
